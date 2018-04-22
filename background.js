@@ -4,10 +4,10 @@ chrome.webRequest.onBeforeRequest.addListener((detail) => {
 
 		for (var i = 0; i < data.block.length; i++) {
 			var blockRegexUrl = data.block[i].url.replace(/([./])/, "\\$1");
-			if (RegExp(`^(http(?:s))+:\\/\\/(.+?\\.)?${blockRegexUrl}`).test(detail.url) && data.block[i].state) {
+			if (RegExp(`^(http(?:s))+:\\/\\/(.+?\\.)?(${blockRegexUrl})(?:\\/)`).test(detail.url) && data.block[i].state) {
 				for (var i = 0; i < data.pass.length; i++) {
 					var passRegexUrl = data.pass[i].url.replace(/([./])/, "\\$1");
-					if (RegExp(`^(http(?:s))+:\\/\\/(.+?\\.)?${passRegexUrl}`).test(detail.url) && data.pass[i].state) {
+					if (RegExp(`^(http(?:s))+:\\/\\/(.+?\\.)?(${passRegexUrl})(?:\\/)`).test(detail.url) && data.pass[i].state) {
 						return;
 					}
 				}
