@@ -1,0 +1,138 @@
+body {
+	width: 500px;
+	height: 400px;
+	margin: none;
+}
+
+.block-header, .pass-header {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+.block-header h2, .pass-header h2 {
+	margin: 0;
+}
+
+.add-item {
+	width: 25px;
+	height: 25px;
+	font-size: 20px;
+	border: solid 0.5px #BDBDBD;
+	border-radius: 50%;
+	text-align: center;
+	cursor: pointer;
+	margin-left: 10px;
+}
+
+.add-item.active {
+	display: none;
+}
+
+.new-url-input {
+	display: none;
+}
+
+.add-item.active + .new-url-input {
+	display: block;
+}
+
+.block-list, .pass-list {
+	max-height: 230px;
+	overflow-y: auto;
+}
+
+.urls-list {
+	display: flex;
+	flex-direction: column;
+	padding: 0;
+}
+
+.url-item {
+	height: 30px;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.url-label {
+	width: 0;
+	font-size: 18px;
+	flex-grow: 1;
+	padding-left: 10px;
+}
+
+.url-switch {
+	width: 70px;
+}
+
+.delete-item {
+	font-size: 20px;
+	cursor: pointer;
+}
+
+/***********************
+	CSS for slide switch *
+ ***********************/
+.url-switch {
+  position: relative;
+}
+
+.url-switch input[type="checkbox"] {
+  display: none;
+}
+
+.url-switch input[type="checkbox"] + label {
+  position: absolute;
+  left: 0;
+  top: -12.5px;
+  display: inline-block;
+  font-family: arial;
+  font-size: 1.5em;
+  line-height: 1.5em;
+  z-index: 0;
+}
+
+.url-switch input[type="checkbox"] + label:before, .url-switch input[type="checkbox"] + label:after {
+  content: '';
+  position: absolute;
+  left: 0px;
+  transition: all 0.1s ease-in;
+  z-index: -1;
+	cursor: pointer;
+}
+
+.url-switch input[type="checkbox"] + label:before {
+  content: 'OFF';
+  text-align: right;
+  width: 40px;
+  height: 25px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-radius: 20px;
+  background: #c00;
+  color: #fff;
+  font-size: 0.5em;
+}
+
+.url-switch input[type="checkbox"] + label:after {
+  width: 25px;
+  height: 25px;
+  border-radius: 18px;
+  background: radial-gradient(ellipse at center, #f9f9f9 0%, #d6d6d6 71%, #dbdbdb 73%, #707070 87%);
+}
+
+.url-switch input[type="checkbox"]:checked + label:before {
+  content: 'ON';
+  background: #070;
+  text-align: left;
+}
+
+.url-switch input[type="checkbox"]:checked + label:after {
+  left: 31px;
+}
+
+/******************************
+	END: CSS for slide switch   *
+ ******************************/
