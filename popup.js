@@ -61,7 +61,7 @@ function attackListener() {
 
 function createNewUrl(type, url) {
 	var newUrl = {
-		url : url,
+		url : url.replace(/(^\w+:|^)\/\//, ''),
 		state : true
 	}
 
